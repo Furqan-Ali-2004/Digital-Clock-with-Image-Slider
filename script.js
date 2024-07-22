@@ -72,17 +72,20 @@ arrowL.addEventListener("click", () => {
 
 // Clock Code
 
-let hrs = document.querySelector("#hrs");
-let min = document.querySelector("#min");
-let sec = document.querySelector("#sec");
-
 setInterval(() => {
   let currentTime = new Date();
+  let hours = currentTime.getHours();
+  let minutes = currentTime.getMinutes();
+  let seconds = currentTime.getSeconds();
+  let period = hours >= 12 ? "PM" : "AM";
 
-  hrs.innerHTML =
-    (currentTime.getHours() < 10 ? "0" : "") + currentTime.getHours();
-  min.innerHTML =
-    (currentTime.getMinutes() < 10 ? "0" : "") + currentTime.getMinutes();
-  sec.innerHTML =
-    (currentTime.getSeconds() < 10 ? "0" : "") + currentTime.getSeconds();
+  // Convert hours from 24-hour format to 12-hour format
+  hours = hours % 12;
+  hours = hours ? hours : 12; // the hour '0' should be '12'
+
+  // Update the HTML elements
+  hrs.innerHTML = (hours < 10 ? "0" : "") + hours;
+  min.innerHTML = (minutes < 10 ? "0" : "") + minutes;
+  sec.innerHTML = (seconds < 10 ? "0" : "") + seconds;
+  ampm.innerHTML = period;
 }, 1000);

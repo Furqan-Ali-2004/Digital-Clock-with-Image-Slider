@@ -76,7 +76,7 @@
 
 .clock {
   height: 150px;
-  width: 600px;
+  width: 750px;
   background-color: rgba(0, 0, 0, 0);
   backdrop-filter: blur(20px);
   position: absolute;
@@ -109,6 +109,10 @@
   bottom: -5px;
   left: 50%;
   transform: translateX(-50%);
+}
+
+#ampm {
+  margin-left: 20px;
 }
 
 #hrs::after {
